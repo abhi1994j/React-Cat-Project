@@ -22,24 +22,28 @@ const CatImageGallery = () => {
   }
 
   return (
-    <div className="container flex items-center flex-col">
-      <div className="w-full flex flex-wrap md:flex-nowrap justify-between items-center gap-2 p-6">
-        {cat.map((ele) => (
-          <button
-            className="max-w-xs shadow-md rounded p-1 active:border active:border-blue-400"
-            key={ele.id}
-            onClick={() => handleClick(ele.id)}
-          >
-            <img
-              className="w-full object-cover "
-              src={ele.image}
-              alt={`cat-${ele.id}`}
-            />
-          </button>
-        ))}
+    <div className="container flex items-center flex-col mb-4">
+      <div className="w-full flex flex-col items-center">
+        <a href="" className="underline">Click on an image!</a>
+        <div className="flex flex-wrap md:flex-nowrap justify-between items-center  gap-2 p-6">
+          {cat.map((ele) => (
+            <button
+              className="max-w-xs shadow-md rounded p-1 active:border cursor-pointer active:border-blue-400"
+              key={ele.id}
+              onClick={() => handleClick(ele.id)}
+            >
+              <img
+                className="w-full object-cover "
+                src={ele.image}
+                alt={`cat-${ele.id}`}
+              />
+            </button>
+          ))}
+        </div>
       </div>
       {clicked ? (
-        <div className="card flex max-w-sm  justify-center items-center border rounded-lg p-2 border-blue-400">
+        <div className="card flex max-w-sm flex-col justify-center items-center border rounded-lg p-4 border-blue-400">
+          <h1 className="font-semibold text-xl mb-2">Selected Image</h1>
           <img className="w-full shadow-lg object-cover" src={data} alt="" />
         </div>
       ) : (
